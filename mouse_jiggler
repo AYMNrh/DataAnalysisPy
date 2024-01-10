@@ -1,0 +1,26 @@
+import pyautogui
+import time
+
+# Set the time interval (in seconds)
+interval = 5 * 60  # 5 minutes
+
+# Counter for the number of moves
+move_count = 0
+
+try:
+    while True:
+        # Move the mouse cursor 10 pixels to the right
+        pyautogui.moveRel(10, 0)
+        time.sleep(0.5)  # Short pause before moving back
+
+        # Move the mouse cursor 10 pixels to the left
+        pyautogui.moveRel(-10, 0)
+        move_count += 1
+        print(f"Move count: {move_count}")
+
+        # Wait for the specified interval
+        time.sleep(interval)
+
+except KeyboardInterrupt:
+    print("Mouse mover stopped.")
+    print(f"Total moves made: {move_count}")
